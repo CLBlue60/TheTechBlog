@@ -1,0 +1,17 @@
+[
+    {
+        "content": "HTML5 has really changed the game in web development!",
+        "user_id": 3,
+        "post_id": 2
+    },
+    {
+        "content": "I've been experimenting with GraphQL recently, it's quite powerful!",
+        "user_id": 1,
+        "post_id": 3
+    },
+    {
+        "content": "Working with Docker containers has made deployment a breeze!",
+        "user_id": 2,
+        "post_id": 1
+    }
+]
