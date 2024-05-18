@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Tech Blog</title>
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- Main container -->
+    <div class="flex-column justify-space-around">
+        <!-- Header section -->
+        <header class="display-flex flex-column align-center p-2">
+            <!-- Website title -->
+            <h1>Tech Blog</h1>
+            <!-- Navigation links -->
+            <nav>
+                <a href="/" class="p-2">Home</a>
+                <a href="/dashboard" class="p-2">Dashboard</a>
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <a href="#" id="logout" class="p-2">Logout</a>
+                {{else}}
+                <a href="/login" class="p-2">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <!-- Main content area -->
+        <main class="container container-fluid mt-5">
+            <!-- Render the sub layout -->
+            {{{ body }}}
+        </main>
+        <!-- Footer section -->
+        <footer>
+            <!-- Footer content -->
+        </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>

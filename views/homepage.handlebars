@@ -1,0 +1,22 @@
+<!-- Display a flex container with a row layout and space-between alignment -->
+<div class="display-flex flex-row justify-space-between">
+    <!-- Iterate over each post -->
+    {{#each posts as |post|}}
+    <!-- Post card -->
+    <section class="card col-5">
+        <!-- Card header -->
+        <header>
+            <!-- Title with a link to the post -->
+            <h4 class="display-inline-block"><a href="/posts/{{id}}">{{title}}</a></h4>
+            <!-- Creator information -->
+            <p class="display-inline-block creator">By: {{user.username}}</p>
+        </header>
+
+        <!-- Card body -->
+        <div class="card-body">
+            <!-- Creation date of the post -->
+            <p>Created: {{format_date createdAt}}</p>
+        </div>
+    </section>
+    {{/each}}
+</div>

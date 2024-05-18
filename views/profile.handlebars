@@ -1,0 +1,61 @@
+<!-- Section for displaying user information and new post button -->
+<section class="display-flex flex-column align-center">
+    <!-- Title greeting the user -->
+    <h2>Welcome {{user.username}}</h2>
+    <!-- Link for creating a new post -->
+    <a href="/post" class="btn btn-primary m-3 p-2">New Post</a>
+    <!-- Text indicating user's post history -->
+    <p>Your post history</p>
+</section>
+
+<!-- Section for displaying user's posts -->
+<div class="display-flex flex-row justify-space-between">
+    <!-- Iterate through each post -->
+    {{#each posts as |post|}}
+    <section class="card col-5">
+        <header>
+            <!-- Link to view post details -->
+            <h4 class="display-inline-block"><a href="/posts/{{id}}">{{title}}</a></h4>
+            <!-- Display creation date of the post -->
+            <p class="display-inline-block created">Created: {{format_date createdAt}}</p>
+        </header>
+
+        <div class="card-body display-flex justify-space-between">
+            <!-- Button to update post -->
+            <button class="btn btn-primary btn-modal" data-btn-id="{{post.id}}">Update</button>
+            <!-- Button to delete post -->
+            <button class="btn btn-danger" data-btn-id="{{post.id}}">Delete</button>
+        </div>
+    </section>
+    {{/each}}
+</div>
+
+<!-- Modal for updating a post -->
+<div id="update" class="modal">
+    <div class="modal-content">
+        <div class="update-card card p-4">
+            <!-- Title for the update post page -->
+            <h2 class="page-title">Update Post</h2>
+            <!-- Form for updating a post -->
+            <form class="form update-form">
+                <!-- Input field for post title -->
+                <div class="form-group">
+                    <label for="title-update">Title:</label>
+                    <input class="form-input" type="text" id="title-update" />
+                </div>
+                <!-- Textarea for post content -->
+                <div class="form-group">
+                    <label for="content-update">Blog:</label>
+                    <textarea class="form-textarea" type="text" id="content-update"></textarea>
+                </div>
+                <!-- Submit button for updating the post -->
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript file for handling profile page functionality -->
+<script src="./js/profile.js"></script>
